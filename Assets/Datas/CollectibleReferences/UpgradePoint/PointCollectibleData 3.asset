@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa80b23d8e42df40987fa10402ee15d, type: 3}
+  m_Name: PointCollectibleData 3
+  m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.UpgradePointCollectibleData
+  defaultValue: 0
+  value: 0
+  itemId: submachine_point
+  displayName: Submachine Point
+  icon: {fileID: 4302927716473386306, guid: a71308daee3eebc428ae90d302944310, type: 3}
+  upgradeType: 4
