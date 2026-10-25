@@ -18,6 +18,8 @@ namespace Editor.Data
             SyncList<CurrencyCollectibleData>(serializedConfig.FindProperty("currencies"));
             SyncList<UnlockPointCollectibleData>(serializedConfig.FindProperty("unlockPoints"));
             SyncList<UpgradePointCollectibleData>(serializedConfig.FindProperty("upgradePoints"));
+            SyncList<ChestPointCollectibleData>(serializedConfig.FindProperty("chestPoints"));
+            SyncList<ConsumableCollectibleData>(serializedConfig.FindProperty("consumables"));
             serializedConfig.ApplyModifiedProperties();
         }
 
@@ -173,6 +175,12 @@ namespace Editor.Data
 
             if (collectible is UpgradePointCollectibleData)
                 return "upgradePoints";
+
+            if (collectible is ChestPointCollectibleData)
+                return "chestPoints";
+
+            if (collectible is ConsumableCollectibleData)
+                return "consumables";
 
             return null;
         }

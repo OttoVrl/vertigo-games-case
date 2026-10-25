@@ -12,6 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6643e0eb287945458809a455de0a1e13, type: 3}
   m_Name: GoldZone
   m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.WheelConfig
-  wheelSprite: {fileID: 0}
-  slices: []
+  wheelSprite: {fileID: 5770997025872212153, guid: 194493a63689300478a429575d4ddc57, type: 3}
+  slices:
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
   hasBomb: 0

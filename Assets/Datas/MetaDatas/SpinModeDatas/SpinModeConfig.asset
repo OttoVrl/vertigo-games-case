@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: SpinModeConfig
   m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.SpinDatabaseConfig
   zoneStepCount: 60
-  perSafeZoneValue: 5
-  perSuperZoneValue: 30
+  rewardIncreasePerZone: 0.1
+  zoneDatas:
+  - {fileID: 11400000, guid: 2ce8025b75405d640abddcd189738a9e, type: 2}
+  - {fileID: 11400000, guid: be6a7a9d4d3a3ff4d82dd5167a910670, type: 2}
+  - {fileID: 11400000, guid: 4ac8b32453825d54bb060cb9a47ead71, type: 2}

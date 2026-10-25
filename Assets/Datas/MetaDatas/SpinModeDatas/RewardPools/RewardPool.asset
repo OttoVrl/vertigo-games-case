@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056740d77143d2d42b84d976ed3a5af7, type: 3}
   m_Name: RewardPool
   m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.RewardPool
-  entries: []
+  entries:
+  - collectibleData: {fileID: 11400000, guid: 2c51ae999eecf21438586b7c5162801a, type: 2}
+    minAmount: 50
+    maxAmount: 1000
+    weight: 0
+    unlockZone: 0
+  - collectibleData: {fileID: 11400000, guid: 2c51ae999eecf21438586b7c5162801a, type: 2}
+    minAmount: 50
+    maxAmount: 1000
+    weight: 0
+    unlockZone: 0

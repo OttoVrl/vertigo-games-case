@@ -26,3 +26,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7e05d2466347c7a4380b6f00234ca0fd, type: 2}
   - {fileID: 11400000, guid: 094e0327ea0658d46b85a011be9ac949, type: 2}
   - {fileID: 11400000, guid: 4df9b86b43885dc4ca7c4144b045e595, type: 2}
+  chestPoints:
+  - {fileID: 11400000, guid: d735f049292f2414385495953de43007, type: 2}
+  - {fileID: 11400000, guid: cf2571c026187e2448c7d222420a987a, type: 2}
+  - {fileID: 11400000, guid: f34b45d7ce6fe3743bfbdaf6886656a2, type: 2}
+  - {fileID: 11400000, guid: 8eacaafd751225049b1b9f8f25234282, type: 2}
+  - {fileID: 11400000, guid: ed9a47b2ad9b68f47bfc95941fedb4be, type: 2}
+  - {fileID: 11400000, guid: 309868f26f9e60d429effbb484b5ab46, type: 2}
+  consumables:
+  - {fileID: 11400000, guid: 09031eae6bc19064685a2af8a3c64f2d, type: 2}

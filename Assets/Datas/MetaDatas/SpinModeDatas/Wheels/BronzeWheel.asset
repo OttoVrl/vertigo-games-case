@@ -12,6 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6643e0eb287945458809a455de0a1e13, type: 3}
   m_Name: BronzeWheel
   m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.WheelConfig
-  wheelSprite: {fileID: 0}
-  slices: []
-  hasBomb: 0
+  wheelSprite: {fileID: -7416167051008218582, guid: 7312c5df9dd62d645b1be41cdbbef716, type: 3}
+  slices:
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  - isBomb: 0
+    rewardPool: {fileID: 0}
+    weight: 0
+  hasBomb: 1

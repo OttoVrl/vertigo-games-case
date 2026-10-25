@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c96fbec5c548bbba0e083a7527fced, type: 3}
   m_Name: ZoneData
   m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.ZoneData
-  zoneKey: 
-  displayName: 
+  zoneKey: default_zone
+  displayName: Default Zone
   stepInterval: 1
   zoneColor: {r: 1, g: 1, b: 1, a: 1}
-  wheelConfig: {fileID: 0}
+  wheelConfig: {fileID: 11400000, guid: 7f1efbdab83e29943aae62a9e1008d4a, type: 2}

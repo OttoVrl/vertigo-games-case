@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 824e07d26d53a054a98692b7c8c767c9, type: 3}
-  m_Name: BarettaPoint
+  m_Name: BayoneSummerVicePoint
   m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.UnlockPointCollectibleData
   defaultValue: 0
   value: 0
-  itemId: bayonet_summer_unlock_point
+  itemId: bayonet_summer_point
   displayName: Bayonet Summer Vice
   icon: {fileID: -8530197202772083711, guid: 1b6575c0d43590e459b7c7c3bf0e8355, type: 3}

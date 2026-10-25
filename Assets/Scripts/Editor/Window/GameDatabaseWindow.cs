@@ -19,7 +19,9 @@ namespace Editor.Data
         {
             new GroupDefinition("Currency", "currencies", "Assets/Datas/CollectibleReferences/Currency", "CurrencyCollectibleData", typeof(CurrencyCollectibleData)),
             new GroupDefinition("Unlock Point", "unlockPoints", "Assets/Datas/CollectibleReferences/UnlockPoint", "UnlockPointCollectibleData", typeof(UnlockPointCollectibleData)),
-            new GroupDefinition("Upgrade Point", "upgradePoints", "Assets/Datas/CollectibleReferences/UpgradePoint", "PointCollectibleData", typeof(UpgradePointCollectibleData))
+            new GroupDefinition("Upgrade Point", "upgradePoints", "Assets/Datas/CollectibleReferences/UpgradePoint", "PointCollectibleData", typeof(UpgradePointCollectibleData)),
+            new GroupDefinition("Chest Point", "chestPoints", "Assets/Datas/CollectibleReferences/ChestPoint", "ChestPointCollectibleData", typeof(ChestPointCollectibleData)),
+            new GroupDefinition("Consumable", "consumables", "Assets/Datas/CollectibleReferences/ConsumableItem", "ConsumableCollectibleData", typeof(ConsumableCollectibleData))
         };
 
         [SerializeField] private GameDatabaseConfig _config;
