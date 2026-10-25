@@ -27,7 +27,7 @@ namespace Runtime.UI
         {
             mainFrameRectTransform.localScale = Vector3.one * .7f;
             IsActivated = true;
-            SetActive(false);
+            SetActive(true);
             ShowAnimation();
         }
 
