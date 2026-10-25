@@ -75,6 +75,12 @@ namespace Runtime.Managers
            {
                _gameStateRef.UpdateEvent += OnGameStateRefChanged;
            }
+
+           if (_popupStateRef != null)
+           {
+               _popupStateRef.UpdateEvent += OnPopUpStateRefChanged;
+           }
+           _isInitialized = true;
        }
 
        
@@ -86,11 +92,13 @@ namespace Runtime.Managers
        
        private static void ResetGameState()
        {
+           CheckIsInitialized();
            _gameStateRef?.Reset();
        }
 
        private static void ResetPopUpState()
        {
+           CheckIsInitialized();
            _popupStateRef?.Reset();
        }
        
