@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65ea672882c442c83cedd3ca15bc560, type: 3}
+  m_Name: HealthshotNeurostim
+  m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.ConsumableCollectibleData
+  defaultValue: 0
+  value: 0
+  itemId: healthshot_neurostim_collectible
+  displayName: HealthShot Neurostim
+  icon: {fileID: 3833793503973785886, guid: 3383ed883ded6104294759c88b8b4571, type: 3}
+  caseOrderIndex: 3

@@ -2,6 +2,11 @@ namespace Runtime.Enums
 {
     public enum PopUpState
     {
-        None
+        None,
+        SpinModeEntryPopUp,
+        SpinModeCaseLostWarningPopUp,
+        SpinModeBombPopUp,
+        SpinModeExitPopUp,
+        SpinModeCompletePopUp
     }
 }

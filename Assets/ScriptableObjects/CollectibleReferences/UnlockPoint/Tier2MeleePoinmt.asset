@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824e07d26d53a054a98692b7c8c767c9, type: 3}
+  m_Name: Tier2MeleePoinmt
+  m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.UnlockPointCollectibleData
+  defaultValue: 0
+  value: 0
+  itemId: tier2_mle_point
+  displayName: Melee
+  icon: {fileID: 4658459910315597717, guid: a9ce8f0efd41cf546b257fc878ef4016, type: 3}
+  caseOrderIndex: 2

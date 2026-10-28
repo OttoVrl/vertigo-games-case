@@ -8,8 +8,11 @@ namespace Runtime.Data
     {
         [SerializeField] private GameDatabaseConfig databaseConfig;
         [SerializeField] private SpinDatabaseConfig spinDatabaseConfig;
+        [SerializeField] private AudioConfig audioConfig;
         
         public GameDatabaseConfig DatabaseConfig => databaseConfig;
         public SpinDatabaseConfig SpinDatabaseConfig => spinDatabaseConfig;
+        
+        public AudioConfig AudioConfig => audioConfig;
     }
 }

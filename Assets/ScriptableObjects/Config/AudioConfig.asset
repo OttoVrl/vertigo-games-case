@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae4206cdb38f8344a7fdfb04537bb50, type: 3}
+  m_Name: AudioConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.AudioConfig
+  audioClipPairs:
+  - sfxType: 0
+    audioClip:
+      audioClip: {fileID: 8300000, guid: a38889550c4bbec4e9f8fb4c6e00382d, type: 3}
+      volume: 1
+      pitch: 1
+  - sfxType: 1
+    audioClip:
+      audioClip: {fileID: 8300000, guid: 57f456db1db77a24687705049c812fa0, type: 3}
+      volume: 1
+      pitch: 1
+  - sfxType: 2
+    audioClip:
+      audioClip: {fileID: 8300000, guid: 2656d6cbd34bde24aaf9398180482521, type: 3}
+      volume: 1
+      pitch: 1
+  - sfxType: 3
+    audioClip:
+      audioClip: {fileID: 0}
+      volume: 1
+      pitch: 1
+  - sfxType: 4
+    audioClip:
+      audioClip: {fileID: 8300000, guid: df5bc0b84d5911840830b1065a763808, type: 3}
+      volume: 1
+      pitch: 1
+  - sfxType: 5
+    audioClip:
+      audioClip: {fileID: 8300000, guid: 9dc6042bda2e5974bb529899fb0ac1bf, type: 3}
+      volume: 1
+      pitch: 1
+  - sfxType: 6
+    audioClip:
+      audioClip: {fileID: 8300000, guid: 5fdebf686447f9d4aa52ede0b79c1bee, type: 3}
+      volume: 1
+      pitch: 1

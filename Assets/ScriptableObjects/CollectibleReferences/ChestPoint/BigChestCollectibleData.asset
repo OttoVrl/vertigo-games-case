@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f51c0d7b1b10094db23d485eb014ca6, type: 3}
+  m_Name: BigChestCollectibleData
+  m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.ChestPointCollectibleData
+  defaultValue: 0
+  value: 0
+  itemId: bigg_chest_collectible
+  displayName: Big Chest
+  icon: {fileID: -4939823803957887640, guid: ee31814a9a5f97a4d880d7bcc83b01ac, type: 3}
+  caseOrderIndex: 3
+  chestType: 0

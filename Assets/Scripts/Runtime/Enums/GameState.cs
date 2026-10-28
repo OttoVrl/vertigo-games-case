@@ -4,6 +4,7 @@ namespace Runtime.Enums
     {
         None,
         Menu,
-        SpinGame
+        SpinGame,
+        RewardsResult
     }
 }

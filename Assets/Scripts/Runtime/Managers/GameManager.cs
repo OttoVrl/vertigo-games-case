@@ -1,6 +1,4 @@
-using System;
 using Runtime.Data;
-using Runtime.Enums;
 using UnityEngine;
 
 namespace Runtime.Managers
@@ -17,6 +15,7 @@ namespace Runtime.Managers
         
         [Header("Managers")]
         [SerializeField] private UIManager uiManager;
+        [SerializeField] private SfxManager sfxManager;
 
         private void Start()
         {
@@ -27,8 +26,12 @@ namespace Runtime.Managers
         {
             //...
             StateManager.Initialize(gameStateReference,popUpStateReference);
+            DataSaver.Initialize(globalConfig);
+            Factory.Initialize(globalConfig);
+            
             
             uiManager.Initialize(globalConfig);
+            sfxManager.Initialize(globalConfig);
             //..
         }
 

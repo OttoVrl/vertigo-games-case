@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056740d77143d2d42b84d976ed3a5af7, type: 3}
+  m_Name: Bronze_Chest
+  m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.RewardPool
+  entries:
+  - collectibleData: {fileID: 11400000, guid: d735f049292f2414385495953de43007, type: 2}
+    minAmount: 1
+    maxAmount: 2
+    weight: 12
+    unlockZone: 1
+    scaleWithZone: 0
+    maxAmountCap: 0
+  - collectibleData: {fileID: 11400000, guid: cf2571c026187e2448c7d222420a987a, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    weight: 8
+    unlockZone: 4
+    scaleWithZone: 0
+    maxAmountCap: 0
+  - collectibleData: {fileID: 11400000, guid: 8eacaafd751225049b1b9f8f25234282, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    weight: 5
+    unlockZone: 11
+    scaleWithZone: 0
+    maxAmountCap: 0

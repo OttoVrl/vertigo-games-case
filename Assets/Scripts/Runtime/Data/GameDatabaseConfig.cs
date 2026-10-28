@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -27,6 +29,41 @@ namespace Runtime.Data
         public IReadOnlyList<ChestPointCollectibleData> ChestPoints => chestPoints ?? EmptyChestPoints;
         public IReadOnlyList<ConsumableCollectibleData> Consumables => consumables ?? EmptyConsumables;
 
+        [NonSerialized] private Dictionary<string, BaseCollectibleData> _collectiblesById;
+
+        public IEnumerable<BaseCollectibleData> AllCollectibles()
+        {
+            EnsureCache();
+            return _collectiblesById.Values;
+        }
+
+        public bool TryGetCollectible(string itemId, out BaseCollectibleData collectible)
+        {
+            collectible = null;
+            if (string.IsNullOrEmpty(itemId))
+                return false;
+
+            EnsureCache();
+            return _collectiblesById.TryGetValue(itemId, out collectible);
+        }
+
+        public bool TryGetCollectible<T>(string itemId, out T collectible) where T : BaseCollectibleData
+        {
+            if (TryGetCollectible(itemId, out BaseCollectibleData found) && found is T typed)
+            {
+                collectible = typed;
+                return true;
+            }
+
+            collectible = null;
+            return false;
+        }
+
+        private void OnEnable()
+        {
+            _collectiblesById = null;
+        }
+
         private void OnValidate()
         {
             currencies ??= new List<CurrencyCollectibleData>();
@@ -34,6 +71,43 @@ namespace Runtime.Data
             upgradePoints ??= new List<UpgradePointCollectibleData>();
             chestPoints ??= new List<ChestPointCollectibleData>();
             consumables ??= new List<ConsumableCollectibleData>();
+            _collectiblesById = null;
+        }
+
+        private void EnsureCache()
+        {
+            if (_collectiblesById != null)
+                return;
+
+            _collectiblesById = new Dictionary<string, BaseCollectibleData>(StringComparer.Ordinal);
+            AddToCache(currencies);
+            AddToCache(unlockPoints);
+            AddToCache(upgradePoints);
+            AddToCache(chestPoints);
+            AddToCache(consumables);
+        }
+
+        private void AddToCache<T>(List<T> source) where T : BaseCollectibleData
+        {
+            if (source == null)
+                return;
+
+            for (int i = 0; i < source.Count; i++)
+            {
+                T collectible = source[i];
+                if (collectible == null)
+                    continue;
+
+                string itemId = collectible.ItemId;
+                if (string.IsNullOrEmpty(itemId))
+                {
+                    Debug.LogWarning($"[GameDatabaseConfig] '{collectible.name}' has no itemId and was skipped.", collectible);
+                    continue;
+                }
+
+                if (!_collectiblesById.TryAdd(itemId, collectible))
+                    Debug.LogWarning($"[GameDatabaseConfig] Duplicate itemId '{itemId}' on '{collectible.name}'. Keeping the first entry.", collectible);
+            }
         }
     }
 }

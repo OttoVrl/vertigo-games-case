@@ -149,9 +149,13 @@ namespace Editor.Data
             if (_showSettings)
             {
                 float previousLabelWidth = EditorGUIUtility.labelWidth;
-                EditorGUIUtility.labelWidth = 150f;
+                EditorGUIUtility.labelWidth = 130f;
                 DrawConfigField("zoneStepCount");
                 DrawConfigField("rewardIncreasePerZone");
+                EditorGUILayout.Space(6f);
+                DrawReviveSettings();
+                EditorGUILayout.Space(6f);
+                DrawStartTypes();
                 EditorGUIUtility.labelWidth = previousLabelWidth;
             }
 
@@ -164,6 +168,112 @@ namespace Editor.Data
             SerializedProperty property = _serializedConfig.FindProperty(propertyName);
             if (property != null)
                 EditorGUILayout.PropertyField(property);
+        }
+
+        private void DrawReviveSettings()
+        {
+            EditorGUILayout.LabelField("Revive", EditorStyles.boldLabel);
+            DrawConfigField("startReviveCost", "Start Cost");
+            DrawConfigField("reviveCostIncreasePerZone", "Increase / Zone");
+            DrawConfigField("reviveCostCurrencyType", "Currency");
+
+            SerializedProperty startCost = _serializedConfig.FindProperty("startReviveCost");
+            SerializedProperty increase = _serializedConfig.FindProperty("reviveCostIncreasePerZone");
+            SerializedProperty currencyProperty = _serializedConfig.FindProperty("reviveCostCurrencyType");
+            SerializedProperty zoneStepCount = _serializedConfig.FindProperty("zoneStepCount");
+            if (startCost == null || increase == null)
+                return;
+
+            if (startCost.intValue < 0)
+                EditorGUILayout.HelpBox("Revive başlangıç maliyeti 0'dan küçük olamaz.", MessageType.Warning);
+
+            if (currencyProperty != null && currencyProperty.objectReferenceValue == null)
+                EditorGUILayout.HelpBox("Revive currency seçilmedi.", MessageType.Warning);
+
+            int lastZone = Mathf.Max(1, zoneStepCount != null ? zoneStepCount.intValue : 1);
+            EditorGUILayout.LabelField("Örnek maliyet", EditorStyles.miniBoldLabel);
+            DrawReviveSample(1, startCost.intValue, increase.floatValue);
+            DrawReviveSample(Mathf.Clamp(5, 1, lastZone), startCost.intValue, increase.floatValue);
+            DrawReviveSample(lastZone, startCost.intValue, increase.floatValue);
+        }
+
+        private static void DrawReviveSample(int zone, int startCost, float increasePerZone)
+        {
+            float multiplier = 1f + (zone - 1) * increasePerZone;
+            int cost = Mathf.Max(0, Mathf.RoundToInt(startCost * multiplier));
+            EditorGUILayout.LabelField($"Zone {zone}  →  {cost}", EditorStyles.miniLabel);
+        }
+
+        private void DrawConfigField(string propertyName, string label)
+        {
+            SerializedProperty property = _serializedConfig.FindProperty(propertyName);
+            if (property != null)
+                EditorGUILayout.PropertyField(property, new GUIContent(label));
+        }
+
+        private void DrawStartTypes()
+        {
+            SerializedProperty list = _serializedConfig.FindProperty("customStartTypes");
+            if (list == null)
+                return;
+
+            EditorGUILayout.LabelField("Start Types", EditorStyles.boldLabel);
+
+            if (list.arraySize == 0)
+                EditorGUILayout.LabelField("Kayıt yok", EditorStyles.miniLabel);
+
+            for (int i = 0; i < list.arraySize; i++)
+            {
+                SerializedProperty element = list.GetArrayElementAtIndex(i);
+                EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField($"Start {i + 1}", EditorStyles.miniBoldLabel);
+                bool remove = GUILayout.Button("-", GUILayout.Width(22f));
+                EditorGUILayout.EndHorizontal();
+
+                if (remove)
+                {
+                    list.DeleteArrayElementAtIndex(i);
+                    ApplyAndExit();
+                }
+
+                DrawElementField(element, "_targetCurrencyData", "Currency");
+                DrawElementField(element, "cost", "Cost");
+                DrawElementField(element, "startZoneIndex", "Start Zone");
+
+                SerializedProperty currency = element.FindPropertyRelative("_targetCurrencyData");
+                SerializedProperty startZone = element.FindPropertyRelative("startZoneIndex");
+                if ((currency != null && currency.objectReferenceValue == null) || (startZone != null && startZone.intValue < 1))
+                    EditorGUILayout.HelpBox("Currency seç ve başlangıç zone'unu 1 veya daha büyük yap.", MessageType.Warning);
+
+                EditorGUILayout.EndVertical();
+            }
+
+            if (GUILayout.Button("+ Start Type"))
+            {
+                int index = list.arraySize;
+                list.InsertArrayElementAtIndex(index);
+                SerializedProperty element = list.GetArrayElementAtIndex(index);
+                SerializedProperty currency = element.FindPropertyRelative("_targetCurrencyData");
+                SerializedProperty cost = element.FindPropertyRelative("cost");
+                SerializedProperty startZone = element.FindPropertyRelative("startZoneIndex");
+                if (currency != null)
+                    currency.objectReferenceValue = null;
+                if (cost != null)
+                    cost.intValue = 0;
+                if (startZone != null)
+                    startZone.intValue = 1;
+
+                ApplyAndExit();
+            }
+        }
+
+        private static void DrawElementField(SerializedProperty element, string relativeName, string label)
+        {
+            SerializedProperty property = element.FindPropertyRelative(relativeName);
+            if (property != null)
+                EditorGUILayout.PropertyField(property, new GUIContent(label));
         }
 
         private void DrawZoneGroup()

@@ -9,11 +9,11 @@ namespace Runtime.Data
         [SerializeField] private UpgradeType upgradeType;
         
         public UpgradeType UpgradeType => upgradeType;
-        
-        public override void GrantToPlayer(int amount,RewardSourceType source)
+
+        public override void GrantToPlayer(int amount, RewardSourceType rewardSource)
         {
-            
+            Value += amount;
+            DataSaver.SaveCollectible(ItemId, Value);
         }
-        
     }
 }

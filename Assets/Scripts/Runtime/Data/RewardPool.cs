@@ -11,16 +11,27 @@ namespace Runtime.Data
         [SerializeField] private int minAmount;
         [SerializeField] private int maxAmount;
         [SerializeField] private int weight;
-        [SerializeField,Min(1)] private int unlockZone;
-        
-        
+        [SerializeField,Min(1)] private int unlockZone = 1;
+        [SerializeField] private bool scaleWithZone = true;
+        [SerializeField,Min(0),Tooltip("0 = sınırsız")] private int maxAmountCap;
         
         public BaseCollectibleData CollectibleData => collectibleData;
         public int MinAmount => minAmount;
         public int MaxAmount => maxAmount;
         public int Weight => weight;
         public int UnlockZone => unlockZone;
-        
+        public bool ScaleWithZone => scaleWithZone;
+        public int MaxAmountCap => maxAmountCap;
+
+        public int RollAmount(float rewardMultiplier)
+        {
+            int amount = UnityEngine.Random.Range(minAmount, Mathf.Max(minAmount, maxAmount) + 1);
+
+            if (scaleWithZone) amount = Mathf.RoundToInt(amount * rewardMultiplier);
+            if (maxAmountCap > 0) amount = Mathf.Min(amount, maxAmountCap);
+
+            return Mathf.Max(1, amount);
+        }
     }
     
     [CreateAssetMenu(fileName = "RewardPool", menuName = "Data/Spin/RewardPool")]
@@ -61,7 +72,7 @@ namespace Runtime.Data
             return entry != null
                 && entry.CollectibleData
                    && entry.Weight>0
-                   && zone > entry.UnlockZone
+                   && zone >= entry.UnlockZone
                    && !excluded.Contains(entry.CollectibleData);
         }
     }

@@ -19,12 +19,23 @@ namespace Runtime.Data
     public class WheelConfig : ScriptableObject
     {
         [SerializeField] private Sprite wheelSprite;
+        [SerializeField] private Sprite wheelIndicatorSprite;
         [SerializeField] private List<WheelSliceData> slices = new List<WheelSliceData>();
         [SerializeField] private bool hasBomb;
         
         public Sprite WheelSprite => wheelSprite;
+        public Sprite WheelIndicatorSprite => wheelIndicatorSprite;
         public IReadOnlyList<WheelSliceData> Slices => slices;
-        public bool HasBomb => hasBomb;
+
+        public bool HasBomb
+        {
+            get
+            {
+                foreach(var slice in slices)
+                    if (slice!= null && slice.IsBomb) return true;
+                return false;
+            }
+        }
 
         private void OnValidate()
         {

@@ -9,10 +9,11 @@ namespace Runtime.Data
         [SerializeField] private ChestType chestType;
         
         public ChestType ChestType => chestType;
-        
+
         public override void GrantToPlayer(int amount, RewardSourceType rewardSource)
         {
-                 
+            Value += amount;
+            DataSaver.SaveCollectible(ItemId, Value);
         }
     }
 }

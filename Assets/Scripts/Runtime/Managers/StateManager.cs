@@ -81,6 +81,8 @@ namespace Runtime.Managers
                _popupStateRef.UpdateEvent += OnPopUpStateRefChanged;
            }
            _isInitialized = true;
+           ResetGameState();
+           ResetPopUpState();
        }
 
        
@@ -130,7 +132,7 @@ namespace Runtime.Managers
                    }
                    catch (Exception ex)
                    {
-                       Debug.LogError("Error invoking");
+                       Debug.LogError(ex);
                    }
                }
            }

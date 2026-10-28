@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6643e0eb287945458809a455de0a1e13, type: 3}
+  m_Name: BronzeWheel
+  m_EditorClassIdentifier: Assembly-CSharp::Runtime.Data.WheelConfig
+  wheelSprite: {fileID: -7416167051008218582, guid: 7312c5df9dd62d645b1be41cdbbef716, type: 3}
+  wheelIndicatorSprite: {fileID: 5759410588988491854, guid: b1e69a96ab741a9419e817081d80dddb, type: 3}
+  slices:
+  - isBomb: 0
+    rewardPool: {fileID: 11400000, guid: 76317149978038042bae7d0ba5057830, type: 2}
+    weight: 14
+  - isBomb: 0
+    rewardPool: {fileID: 11400000, guid: a879a112ecc245a4a3e1aacc0cbd4b77, type: 2}
+    weight: 12
+  - isBomb: 0
+    rewardPool: {fileID: 11400000, guid: 7e1cc5c7b76a4aa7bc0c00720eb36127, type: 2}
+    weight: 11
+  - isBomb: 0
+    rewardPool: {fileID: 11400000, guid: 76317149978038042bae7d0ba5057830, type: 2}
+    weight: 14
+  - isBomb: 0
+    rewardPool: {fileID: 11400000, guid: a879a112ecc245a4a3e1aacc0cbd4b77, type: 2}
+    weight: 12
+  - isBomb: 0
+    rewardPool: {fileID: 11400000, guid: 4830dd6b69be4f748865b5219d57f9ef, type: 2}
+    weight: 9
+  - isBomb: 0
+    rewardPool: {fileID: 11400000, guid: 90dfa8b64c034731a467319e5d9347da, type: 2}
+    weight: 5
+  - isBomb: 1
+    rewardPool: {fileID: 0}
+    weight: 8
+  hasBomb: 1

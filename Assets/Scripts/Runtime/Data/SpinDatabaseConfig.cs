@@ -5,13 +5,33 @@ using UnityEngine;
 
 namespace Runtime.Data
 {
-    
+    [Serializable]
+    public class CustomStartType
+    {
+        [SerializeField] private CurrencyCollectibleData _targetCurrencyData;
+        [SerializeField] private int cost;
+        [SerializeField] private int startZoneIndex;
+        
+        public CurrencyCollectibleData TargetCurrencyData =>  _targetCurrencyData;
+        public int Cost => cost;
+        public int StartZoneIndex => startZoneIndex;
+    }
     
     [CreateAssetMenu(fileName = "SpinModeConfig", menuName = "Data/SpinMode/SpinModeConfig")]
     public class SpinDatabaseConfig : ScriptableObject
     {
         [SerializeField] private int zoneStepCount = 60;
         [SerializeField] private float rewardIncreasePerZone = 0.1f;
+        [SerializeField] private float reviveCostIncreasePerZone = 0.1f;
+        [SerializeField] private int startReviveCost = 10;
+        [SerializeField] private CurrencyCollectibleData reviveCostCurrencyType;
+        
+        [SerializeField] private List<CustomStartType> customStartTypes = new ();
+        
+        public IReadOnlyList<CustomStartType> CustomStartTypes => customStartTypes;
+        public int StartReviveCost => startReviveCost;
+        public float ReviveCostIncreasePerZone => reviveCostIncreasePerZone;
+        public CurrencyCollectibleData ReviveCostCurrencyType => reviveCostCurrencyType;
         
         /*Bu kısımda ZoneType adında enum tanımlanıp default wheel dahil olmak üzere 3 tane WheelConfig kullanarak kontrol ordanda sağlanabilirdi ancak daha scaleble olması,Özel Zoneların
          designer tarafından daha kolay tanımlanabilmesi ve revizeyi azaltmak adına zoneData listesi sistemi yazmaya karar verdim.
@@ -37,6 +57,12 @@ namespace Runtime.Data
         public float GetRewardMultiplier(int zoneIndex)
         {
             return 1f + (zoneIndex-1) * rewardIncreasePerZone;
+        }
+
+        public int GetReviveCost(int zoneIndex)
+        {
+            float multiplier = 1f + (zoneIndex - 1) * reviveCostIncreasePerZone;
+            return Mathf.Max(0, Mathf.RoundToInt(startReviveCost * multiplier));
         }
         
         private int GetInterval(ZoneData zone) => zone ? zone.StepInterval : 0;
